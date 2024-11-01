@@ -16,12 +16,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\082220019\Downloads\FotoViagem\Cadastro-fotos-viagem\FotoViagem\FotoViagem
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/082220019/Downloads/FotoViagem/Cadastro-fotos-viagem/FotoViagem/FotoViagem/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[C:/Users/082220019/Downloads/FotoViagem/Cadastro-fotos-viagem/FotoViagem/FotoViagem/Views/Cadastro/Form.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9cRm9ybS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/082220019/Downloads/FotoViagem/Cadastro-fotos-viagem/FotoViagem/FotoViagem/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[C:/Users/082220019/Downloads/FotoViagem/Cadastro-fotos-viagem/FotoViagem/FotoViagem/Views/FotosViagem/Form.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm90b3NWaWFnZW1cRm9ybS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/082220019/Downloads/FotoViagem/Cadastro-fotos-viagem/FotoViagem/FotoViagem/Views/FotosViagem/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm90b3NWaWFnZW1cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/082220019/Downloads/FotoViagem/Cadastro-fotos-viagem/FotoViagem/FotoViagem/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/082220019/Downloads/FotoViagem/Cadastro-fotos-viagem/FotoViagem/FotoViagem/Views/Shared/Error.cshtml]
