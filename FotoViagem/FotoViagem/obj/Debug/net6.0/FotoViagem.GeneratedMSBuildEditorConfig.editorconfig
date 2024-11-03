@@ -18,8 +18,8 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\lucas\source\repos\Cadastro-fotos-viagem\FotoViagem\FotoViagem
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/lucas/source/repos/Cadastro-fotos-viagem/FotoViagem/FotoViagem/Views/Cadastro/Form.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9cRm9ybS5jc2h0bWw=
+[C:/Users/lucas/source/repos/Cadastro-fotos-viagem/FotoViagem/FotoViagem/Views/Cadastro/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FkYXN0cm9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/lucas/source/repos/Cadastro-fotos-viagem/FotoViagem/FotoViagem/Views/FotosViagem/Form.cshtml]

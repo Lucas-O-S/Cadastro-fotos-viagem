@@ -53,5 +53,15 @@ namespace FotoViagem.DAO
 			return sp;
 
 		}
+
+		public bool VerificarLogin(string login)
+		{
+			SqlParameter[] sp = new SqlParameter[] {
+				new SqlParameter("loginUsuario",login)
+			};
+			DataTable dt = HelperDAO.ExecutaProcSelect("sp_verificarLogin_Cadastro", sp);
+
+            return dt.Rows.Count == 0;
+		}
 	}
 }

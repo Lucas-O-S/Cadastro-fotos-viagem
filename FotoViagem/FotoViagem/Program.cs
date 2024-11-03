@@ -2,7 +2,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSession(options =>
+{
+	options.Cookie.IsEssential = true;
 
+	options.IdleTimeout = TimeSpan.FromSeconds(10);
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -13,6 +18,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -22,6 +28,11 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=index}/");
+
+
+builder.Services.AddControllersWithViews();
+
+app.UseSession();
 
 app.Run();

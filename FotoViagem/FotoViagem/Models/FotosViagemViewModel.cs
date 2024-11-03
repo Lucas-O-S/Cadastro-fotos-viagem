@@ -2,7 +2,7 @@
 {
 	public class FotosViagemViewModel : PadraoViewModel
 	{
-		public string localForo { get; set; }
+		public string localFoto { get; set; }
 		public DateTime dataFoto { get; set; }
 		public int usuario { get; set; }
 		public IFormFile[] fotos{get; set;}

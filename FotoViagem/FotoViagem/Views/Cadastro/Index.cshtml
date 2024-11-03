@@ -1,0 +1,62 @@
+﻿@model CadastroViewModel;
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if(ViewBag.operacao == 'C'){
+    
+        <h2>Cadastro</h2>
+        <div class="row">
+            <div class="col-lg-3">
+                <form action="/cadastro/Cadastro" method="post">
+                    <input name="operacao" value="@ViewBag.operacao" type="hidden" />
+
+                    <label for="nome" class="control-label">Nome</label>
+                    <input type="text" asp-for="nome" class="form-control" required placeholder='Nome...' />
+                    <span asp-validation-for="nome" class="text-danger"></span>
+
+                    <label for="nome" class="control-label">Login</label>
+                    <input type="text" asp-for="loginUsuario" class="form-control" required placeholder='Login...' />
+                    <span asp-validation-for="loginUsuario" class="text-danger"></span>
+
+                    <label for="senha" class="control-label">Senha</label>
+                    <input type="password" asp-for="senha" class="form-control" required placeholder='Senha...' />
+                    <span asp-validation-for="senha" class="text-danger"></span>
+
+                    <br />
+                    <input type="submit" value="Login" class="btn btn-success" />
+                    <br />
+                </form>
+            </div>
+
+        </div>
+    }
+    else
+    {
+        <h2>Login</h2>
+        <div class="row">
+
+
+            <div class="col-lg-3">
+                <form action="/cadastro/Login" method="post">
+                    <input name="operacao" value="@ViewBag.operacao" type="hidden" />
+
+                    <label for="nome" class="control-label">Nome</label>
+                    <input type="text" asp-for="nome" class="form-control" required placeholder='Nome...' />
+                    <span asp-validation-for="nome" class="text-danger"></span>
+
+                    <label for="nome" class="control-label">Login</label>
+                    <input type="text" asp-for="loginUsuario" class="form-control" required placeholder='Login...' />
+                    <span asp-validation-for="loginUsuario" class="text-danger"></span>
+
+                    <label for="senha" class="control-label">Senha</label>
+                    <input type="password" asp-for="senha" class="form-control" required placeholder='Senha...' />
+                    <span asp-validation-for="senha" class="text-danger"></span>
+
+                    <br />
+                    <input type="submit" value="Login" class="btn btn-success" />
+                    <br />
+                </form>
+            </div>
+            </div>
+    }

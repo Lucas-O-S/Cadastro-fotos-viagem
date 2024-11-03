@@ -1,32 +1,35 @@
-﻿using FotoViagem.Models;
-using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+
+
 
 namespace FotoViagem.Controllers
 {
-    public class HomeController : Controller
-    {
-        private readonly ILogger<HomeController> _logger;
+	public class HomeController : Controller
+	{
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
+		public IActionResult Index()
+		{
+			var isLoggedIn = !string.IsNullOrEmpty(HttpContext.Session.GetString("UserName"));
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+			Console.WriteLine(HttpContext.Session.GetString("UserName"));
+			ViewBag.IsLoggedIn = isLoggedIn;
+			return View();
+		}
+		public IActionResult Login(string username, string password)
+		{
+			// Lógica de autenticação (verificação do usuário e senha)
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+			// Se o login for bem-sucedido:
+			if(username != null)
+				HttpContext.Session.SetString("UserName", username);
+			return RedirectToAction("Index", "Home");
+		}
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-    }
+		public IActionResult Logout()
+		{
+			HttpContext.Session.Remove("UserName"); // Remove o usuário da sessão ao fazer logout
+			return RedirectToAction("Index", "Home");
+		}
+	}
 }

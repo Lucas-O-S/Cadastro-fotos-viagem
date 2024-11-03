@@ -136,3 +136,12 @@ begin
 
 end
 go
+
+create or alter procedure sp_verificarLogin_Cadastro(
+	@loginUsuario varchar(300)
+)
+as
+begin
+	select * from cadastro where @loginUsuario = loginUsuario
+end
+go

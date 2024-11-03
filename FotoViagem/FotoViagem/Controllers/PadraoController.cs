@@ -1,7 +1,7 @@
 ﻿using FotoViagem.DAO;
 using FotoViagem.Models;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.AspNetCore.Http;
 namespace FotoViagem.Controllers
 {
     public class PadraoController<T> : Controller where T : PadraoViewModel
