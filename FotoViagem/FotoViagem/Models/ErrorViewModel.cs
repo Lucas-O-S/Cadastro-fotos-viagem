@@ -1,4 +1,4 @@
-namespace FotoViagem.Models
+namespace FotosViagem.Models
 {
     public class ErrorViewModel
     {

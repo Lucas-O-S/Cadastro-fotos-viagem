@@ -41,10 +41,6 @@
                 <form action="/cadastro/Login" method="post">
                     <input name="operacao" value="@ViewBag.operacao" type="hidden" />
 
-                    <label for="nome" class="control-label">Nome</label>
-                    <input type="text" asp-for="nome" class="form-control" required placeholder='Nome...' />
-                    <span asp-validation-for="nome" class="text-danger"></span>
-
                     <label for="nome" class="control-label">Login</label>
                     <input type="text" asp-for="loginUsuario" class="form-control" required placeholder='Login...' />
                     <span asp-validation-for="loginUsuario" class="text-danger"></span>

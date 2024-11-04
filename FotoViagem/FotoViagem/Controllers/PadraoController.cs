@@ -1,15 +1,30 @@
-﻿using FotoViagem.DAO;
-using FotoViagem.Models;
+﻿using FotosViagem.DAO;
+using FotosViagem.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-namespace FotoViagem.Controllers
+using Microsoft.AspNetCore.Mvc.Filters;
+namespace FotosViagem.Controllers
 {
-    public class PadraoController<T> : Controller where T : PadraoViewModel
+    public abstract class PadraoController<T> : Controller where T : PadraoViewModel
     {
-
+        protected bool ExiteAutenticao { get; set; } = true;
         protected PadraoDAO<T> dao { get; set; }
         protected string NomeViewIndex { get; set; } = "index";
         protected string NomeViewForm { get; set; } = "form";
+
+        public override void OnActionExecuting(ActionExecutingContext context)
+        {
+            if(ExiteAutenticao && !HelperControllers.verificaUserLogado(HttpContext.Session))
+            {
+                ViewBag.operacao = "L";
+                context.Result = RedirectToAction("index", "home");
+            }
+            else
+            {
+                ViewBag.Logado = true;
+                base.OnActionExecuting(context);
+            }
+        }
 
         protected virtual IActionResult RedirecionaParaIndex(T model)
         {
@@ -20,8 +35,7 @@ namespace FotoViagem.Controllers
         {
             try
             {
-                var lista = dao.Listagem();
-                return View(NomeViewIndex, lista);
+                return View(NomeViewIndex);
 
             }
             catch (Exception erro)

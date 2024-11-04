@@ -3,16 +3,16 @@
 @{
 
 }
-@if (!ViewBag.isLoggedIn)
+@if (!ViewBag.Logado)
 {
 	
 	<button><a href="/cadastro/index?operacao=C">Cadastro</a></button>
-	<button><a href="/cadastro/index">Login</a></button>
+	<button><a href="/cadastro/index?operacao=L">Login</a></button>
 
 }
 else{
-	<button>Editar/Cadastrar Fotos de Viagem</button>
-	<button><a>Finalizar seção</a></button>
+	<button><a href="/fotosviagem/RedirecionaParaIndex">Fotos de Viagem</a> </button>
+	<button><a href="/home/Logout">Finalizar seção</a></button>
 
 }
 

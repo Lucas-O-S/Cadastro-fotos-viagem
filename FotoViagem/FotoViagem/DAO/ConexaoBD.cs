@@ -1,6 +1,6 @@
 ﻿using System.Data.SqlClient;
 
-namespace FotoViagem.DAO
+namespace FotosViagem.DAO
 {
     public static class ConexaoBD
     {

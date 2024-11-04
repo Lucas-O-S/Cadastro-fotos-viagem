@@ -1,7 +1,7 @@
 ﻿using System.Data.SqlClient;
 using System.Data;
 
-namespace FotoViagem.DAO
+namespace FotosViagem.DAO
 {
     public static class HelperDAO
     {

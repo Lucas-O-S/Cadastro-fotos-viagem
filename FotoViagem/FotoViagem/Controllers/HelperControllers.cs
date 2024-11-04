@@ -1,4 +1,4 @@
-﻿namespace FotoViagem.Controllers
+﻿namespace FotosViagem.Controllers
 {
 	public class HelperControllers
 	{
@@ -8,7 +8,7 @@
 			if (logado == null)
 				return false;
 			else
-				return false;
+				return true;
 
 
 		}

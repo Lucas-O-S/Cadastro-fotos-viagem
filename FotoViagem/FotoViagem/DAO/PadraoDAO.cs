@@ -1,8 +1,8 @@
 ﻿using System.Data.SqlClient;
 using System.Data;
-using FotoViagem.Models;
+using FotosViagem.Models;
 
-namespace FotoViagem.DAO
+namespace FotosViagem.DAO
 {
     public abstract class PadraoDAO<T> where T : PadraoViewModel 
     {

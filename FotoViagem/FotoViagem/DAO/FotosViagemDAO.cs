@@ -1,8 +1,8 @@
-﻿using FotoViagem.Models;
+﻿using FotosViagem.Models;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace FotoViagem.DAO
+namespace FotosViagem.DAO
 {
 	public class FotosViagemDAO : PadraoDAO<FotosViagemViewModel>
 	{

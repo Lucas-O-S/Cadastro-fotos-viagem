@@ -6,7 +6,7 @@ builder.Services.AddSession(options =>
 {
 	options.Cookie.IsEssential = true;
 
-	options.IdleTimeout = TimeSpan.FromSeconds(10);
+	options.IdleTimeout = TimeSpan.FromSeconds(60);
 });
 var app = builder.Build();
 

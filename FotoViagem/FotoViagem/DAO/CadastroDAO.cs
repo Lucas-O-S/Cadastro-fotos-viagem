@@ -1,9 +1,9 @@
-﻿using FotoViagem.Models;
+﻿using FotosViagem.Models;
 using System.Data;
 using System.Data.SqlClient;
 using System.Reflection.Metadata;
 
-namespace FotoViagem.DAO
+namespace FotosViagem.DAO
 {
 	public class CadastroDAO : PadraoDAO<CadastroViewModel>
 	{
@@ -62,6 +62,34 @@ namespace FotoViagem.DAO
 			DataTable dt = HelperDAO.ExecutaProcSelect("sp_verificarLogin_Cadastro", sp);
 
             return dt.Rows.Count == 0;
+		}
+
+		public bool Login(string login, string senha)
+		{
+			SqlParameter[] sp = new SqlParameter[] {
+				new SqlParameter("loginUsuario",login),
+				new SqlParameter("senha",senha)
+
+			};
+			DataTable dt = HelperDAO.ExecutaProcSelect("sp_Fazerlogin_Cadastro", sp);
+
+			return dt.Rows.Count == 0;
+		}
+
+		public int BuscaId(string login, string senha)
+		{
+			SqlParameter[] sp = new SqlParameter[] {
+				new SqlParameter("loginUsuario",login),
+				new SqlParameter("senha",senha)
+
+			};
+			DataTable dt = HelperDAO.ExecutaProcSelect("sp_Fazerlogin_Cadastro", sp);
+			if (dt.Rows.Count != 0)
+			{
+				int id = Convert.ToInt32(dt.Rows[0]["ID"]);
+				return id;
+			}
+			return 0;
 		}
 	}
 }

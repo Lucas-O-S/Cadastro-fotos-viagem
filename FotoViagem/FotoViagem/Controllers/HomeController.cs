@@ -1,19 +1,30 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 
 
-namespace FotoViagem.Controllers
+namespace FotosViagem.Controllers
 {
 	public class HomeController : Controller
 	{
+		bool ExiteAutenticao = true;
+		public override void OnActionExecuting(ActionExecutingContext context)
+		{
+			if (ExiteAutenticao && !HelperControllers.verificaUserLogado(HttpContext.Session))
+			{
+				ViewBag.Logado = false;
+			}
+			else
+			{
+				ViewBag.Logado = true;
+			}
+			base.OnActionExecuting(context);
 
+		}
 		public IActionResult Index()
 		{
-			var isLoggedIn = !string.IsNullOrEmpty(HttpContext.Session.GetString("UserName"));
 
-			Console.WriteLine(HttpContext.Session.GetString("UserName"));
-			ViewBag.IsLoggedIn = isLoggedIn;
 			return View();
 		}
 		public IActionResult Login(string username, string password)
@@ -28,8 +39,10 @@ namespace FotoViagem.Controllers
 
 		public IActionResult Logout()
 		{
-			HttpContext.Session.Remove("UserName"); // Remove o usuário da sessão ao fazer logout
+			HttpContext.Session.Clear(); // Remove o usuário da sessão ao fazer logout
 			return RedirectToAction("Index", "Home");
 		}
+
+
 	}
 }

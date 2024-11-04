@@ -145,3 +145,31 @@ begin
 	select * from cadastro where @loginUsuario = loginUsuario
 end
 go
+
+create or alter procedure sp_FazerLogin_Cadastro(
+	@loginUsuario varchar(300),
+	@senha varchar(max)
+)
+as
+begin
+	select * from cadastro where @loginUsuario = loginUsuario and @senha = senha
+end
+go
+create or alter procedure sp_DevolverId_Cadastro(
+	@loginUsuario varchar(300),
+	@senha varchar(max)
+)
+as
+begin
+	select id from cadastro where @loginUsuario = loginUsuario and @senha = senha
+end
+go
+
+create or alter procedure sp_VerificarDados_FotosViagem(
+	@loginUsuario varchar(300)
+)
+as
+begin
+	select * from FotosViagem where @loginUsuario = usuario
+end
+go
