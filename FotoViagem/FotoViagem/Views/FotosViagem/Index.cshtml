@@ -5,11 +5,29 @@
 
 }
 
-<button>Novo registro</button>
+<button> <a href="/fotosViagem/create">Novo registro</a></button>
 <button>Voltar</button>
 
-<h1>Registros de Fotos de viagem</h1>
-@foreach (FotosViagemViewModel model in Model)
+<h1>Registros de Fotos de Viagem:</h1>
+@foreach (FotosViagemViewModel FV in Model)
 {
-    <h3>asd</h3>
+    <div>
+        <tr class="">
+            <th>@FV.nomeUsuario</th>
+            <th>@FV.nomeUsuario</th>
+        </tr>
+        <tr>
+            @for (int i = 0; i<3; i++)
+            {
+                <th>
+                    <img src="data:image/jpeg;base64,@FV.Fotos64[i]" /> 
+                    <label>@FV.localFoto - @FV.dataFoto</label>    
+                </th>
+                
+            }
+        </tr>
+
+
+    </div>
+
 }

@@ -1,3 +1,42 @@
-﻿@model FotosViagemViewModel;
+﻿@model FotosViagemViewModel
+
 @{
+    ViewData["Title"] = "Upload de Fotos da Viagem";
 }
+
+<!-- Inclua os links do Bootstrap -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container mt-5">
+    <h1>@ViewData["Title"]</h1>
+
+    <form asp-action="UploadFotos" asp-controller="SeuController" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="nomeUsuario" class="control-label">Nome do Usuário</label>
+            <input asp-for="nomeUsuario" class="form-control" />
+            <span asp-validation-for="nomeUsuario" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="localFoto" class="control-label">Local da Foto</label>
+            <input asp-for="localFoto" class="form-control" />
+            <span asp-validation-for="localFoto" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="dataFoto" class="control-label">Data da Foto</label>
+            <input asp-for="dataFoto" type="date" class="form-control" />
+            <span asp-validation-for="dataFoto" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Selecione até 3 fotos:</label>
+            <input type="file" asp-for="fotos" class="form-control" multiple accept="image/*" />
+            <span asp-validation-for="fotos" class="text-danger"></span>
+            <small class="form-text text-muted">Você pode selecionar até 3 fotos.</small>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enviar Fotos</button>
+    </form>
+</div>
+

@@ -35,7 +35,8 @@ namespace FotosViagem.Controllers
         {
             try
             {
-                return View(NomeViewIndex);
+                var model = dao.Listagem();
+                return View(model);
 
             }
             catch (Exception erro)
@@ -121,7 +122,19 @@ namespace FotosViagem.Controllers
             }
         }
 
-
+        public byte[] ConverteImageByte(IFormFile file)
+        {
+            if (file != null)
+            {
+                using (var ms = new MemoryStream())
+                {
+                    file.CopyTo(ms);
+                    return ms.ToArray();
+                }
+            }
+            else
+                return null;
+        }
 
 
     }

@@ -8,7 +8,7 @@ namespace FotosViagem.DAO
 	{
 		protected override void SetTabela()
 		{
-			tabela = "ForosViagem";
+			tabela = "FotosViagem";
 		}
 		protected override SqlParameter[] CriarParametros(FotosViagemViewModel model)
 		{
