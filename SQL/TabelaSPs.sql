@@ -116,7 +116,7 @@ begin
 end
 go
 
-create or alter procedure sp_update_localFoto(
+create or alter procedure sp_update_FotosViagem(
 	@localFoto varchar(200),
 	@dataFoto datetime,
 	@foto01 varbinary(max),

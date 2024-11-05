@@ -3,6 +3,8 @@ using FotosViagem.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Filters;
+using System;
+
 namespace FotosViagem.Controllers
 {
     public abstract class PadraoController<T> : Controller where T : PadraoViewModel
@@ -122,18 +124,25 @@ namespace FotosViagem.Controllers
             }
         }
 
-        public byte[] ConverteImageByte(IFormFile file)
+        public List<byte[]> ConverteImageByte(IFormFile[] file)
         {
-            if (file != null)
+            List<byte[]> bytes = new List<byte[]>();   
+            foreach (IFormFile fileItem in file)
             {
-                using (var ms = new MemoryStream())
+                if (fileItem != null)
                 {
-                    file.CopyTo(ms);
-                    return ms.ToArray();
+                    using (var ms = new MemoryStream())
+                    {
+                        fileItem.CopyTo(ms);
+                        bytes.Add( ms.ToArray());
+                    }
                 }
+                else
+                    bytes.Add(null);
+                
             }
-            else
-                return null;
+            return bytes;
+
         }
 
 

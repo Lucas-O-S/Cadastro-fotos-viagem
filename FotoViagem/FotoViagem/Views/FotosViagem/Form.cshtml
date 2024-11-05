@@ -7,10 +7,13 @@
 <!-- Inclua os links do Bootstrap -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
 
+
 <div class="container mt-5">
     <h1>@ViewData["Title"]</h1>
 
-    <form asp-action="UploadFotos" asp-controller="SeuController" method="post" enctype="multipart/form-data">
+    <form asp-action="save" asp-controller="fotosviagem" method="post" enctype="multipart/form-data">
+        <input name="operacao"  value="@ViewBag.operacao" hidden/>
+
         <div class="form-group">
             <label asp-for="nomeUsuario" class="control-label">Nome do Usuário</label>
             <input asp-for="nomeUsuario" class="form-control" />
@@ -25,18 +28,40 @@
 
         <div class="form-group">
             <label asp-for="dataFoto" class="control-label">Data da Foto</label>
-            <input asp-for="dataFoto" type="date" class="form-control" />
+            <input asp-for="dataFoto" type="date" class="form-control" value="@DateTime.Now"/>
             <span asp-validation-for="dataFoto" class="text-danger"></span>
         </div>
 
-        <div class="form-group">
-            <label>Selecione até 3 fotos:</label>
-            <input type="file" asp-for="fotos" class="form-control" multiple accept="image/*" />
-            <span asp-validation-for="fotos" class="text-danger"></span>
-            <small class="form-text text-muted">Você pode selecionar até 3 fotos.</small>
+        <div>
+            <br />
+            <input type="file" name="fotos[0]" id="Imagem1" onchange="ExibirImagem(1)" class="btn btn-secondary">
+            <img id="imgPreview1" src="data:image/jpeg;base64,@Model.Fotos64" class="img-responsive"
+                 width="100">
+            <span asp-validation-for="fotos[0]" class="text-danger"></span>
+            <br />
+            <input type="file" name="Imagem" id="Imagem2" onchange="ExibirImagem(2)" class="btn btn-secondary">
+            <img id="imgPreview2" src="data:image/jpeg;base64,@Model.Fotos64" class="img-responsive"
+                 width="100">
+            <span asp-validation-for="fotos[1]" class="text-danger"></span>
+            <br />
+            <input type="file" name="Imagem" id="Imagem3" onchange="ExibirImagem(3)" class="btn btn-secondary">
+            <img id="imgPreview3" src="data:image/jpeg;base64,@Model.Fotos64" class="img-responsive"
+                 width="100">
+            <span asp-validation-for="fotos[2]" class="text-danger"></span>
+
         </div>
 
         <button type="submit" class="btn btn-primary">Enviar Fotos</button>
     </form>
 </div>
+
+<script>
+    function ExibirImagem( i) {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("Imagem"+i).files[0]);
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("imgPreview"+i).src = oFREvent.target.result;
+        };
+    }
+</script>
 

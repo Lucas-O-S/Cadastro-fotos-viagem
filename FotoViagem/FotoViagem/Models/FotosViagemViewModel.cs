@@ -13,13 +13,17 @@
 		public List<byte[]> fotosByte {  get; set;}
 		
 		public List<string> Fotos64 { get {
-				var foto64 = new List<string>();
-				foreach (byte[] img in fotosByte)
+				if (fotosByte != null)
 				{
-					if (img != null)
+					var foto64 = new List<string>();
+					foreach (byte[] img in fotosByte)
+					{
 						foto64.Add(Convert.ToBase64String(img));
-				}	
-				return foto64;
+					}
+					return foto64;
+				}
+				else
+					return null;
 			
 			}
 		}

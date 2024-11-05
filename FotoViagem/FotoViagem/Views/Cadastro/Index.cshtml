@@ -42,11 +42,11 @@
                     <input name="operacao" value="@ViewBag.operacao" type="hidden" />
 
                     <label for="nome" class="control-label">Login</label>
-                    <input type="text" asp-for="loginUsuario" class="form-control" required placeholder='Login...' />
+                    <input type="text" asp-for="loginUsuario" class="form-control" value="bob" required placeholder='Login...' />
                     <span asp-validation-for="loginUsuario" class="text-danger"></span>
 
                     <label for="senha" class="control-label">Senha</label>
-                    <input type="password" asp-for="senha" class="form-control" required placeholder='Senha...' />
+                    <input type="password" asp-for="senha" class="form-control" value="bob" required placeholder='Senha...' />
                     <span asp-validation-for="senha" class="text-danger"></span>
 
                     <br />

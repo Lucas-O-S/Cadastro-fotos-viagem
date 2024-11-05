@@ -13,9 +13,17 @@ namespace FotosViagem.DAO
 		protected override SqlParameter[] CriarParametros(FotosViagemViewModel model)
 		{
 			object[] imagensByte = new object[3];
-			imagensByte[0] = model.fotosByte[0];
-			imagensByte[1] = model.fotosByte[1];
-			imagensByte[2] = model.fotosByte[2];
+			for (int i = 0; i < 3; i++)
+			{
+				if (model.fotosByte != null)
+				{
+                    imagensByte[i] = model.fotosByte[i];
+
+                }
+				else {
+					imagensByte[i] = DBNull.Value;
+				}
+            }
 
 			
 			for(int i = 0; i<3; i++)
@@ -30,7 +38,7 @@ namespace FotosViagem.DAO
 				sp = new SqlParameter[]
 				{
 					new SqlParameter("dataFoto",model.dataFoto),
-					new SqlParameter("",model.localFoto),
+					new SqlParameter("localFoto",model.localFoto),
 					new SqlParameter("usuario",model.usuario),
 					new SqlParameter("Foto01", imagensByte[0]),
 					new SqlParameter("Foto02", imagensByte[1]),
