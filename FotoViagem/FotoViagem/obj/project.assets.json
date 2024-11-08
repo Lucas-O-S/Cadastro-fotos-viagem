@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {
+    "net8.0": {
       "Microsoft.NETCore.Platforms/3.1.0": {
         "type": "package",
         "compile": {
@@ -465,45 +465,36 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net7.0": [
+    "net8.0": [
       "System.Data.SqlClient >= 4.8.6"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\082220019\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\lucas\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "Z:\\repo\\Cadastro-fotos-viagem\\FotoViagem\\FotoViagem\\FotoViagem.csproj",
+      "projectUniqueName": "C:\\Users\\lucas\\source\\repos\\Cadastro-fotos-viagem\\FotoViagem\\FotoViagem\\FotoViagem.csproj",
       "projectName": "FotoViagem",
-      "projectPath": "Z:\\repo\\Cadastro-fotos-viagem\\FotoViagem\\FotoViagem\\FotoViagem.csproj",
-      "packagesPath": "C:\\Users\\082220019\\.nuget\\packages\\",
-      "outputPath": "Z:\\repo\\Cadastro-fotos-viagem\\FotoViagem\\FotoViagem\\obj\\",
+      "projectPath": "C:\\Users\\lucas\\source\\repos\\Cadastro-fotos-viagem\\FotoViagem\\FotoViagem\\FotoViagem.csproj",
+      "packagesPath": "C:\\Users\\lucas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lucas\\source\\repos\\Cadastro-fotos-viagem\\FotoViagem\\FotoViagem\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\082220019\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\lucas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net7.0"
+        "net8.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "projectReferences": {}
         }
       },
@@ -514,8 +505,8 @@
       }
     },
     "frameworks": {
-      "net7.0": {
-        "targetAlias": "net7.0",
+      "net8.0": {
+        "targetAlias": "net8.0",
         "dependencies": {
           "System.Data.SqlClient": {
             "target": "Package",
@@ -541,7 +532,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

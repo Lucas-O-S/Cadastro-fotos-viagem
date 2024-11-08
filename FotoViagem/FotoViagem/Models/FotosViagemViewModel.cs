@@ -10,7 +10,7 @@ namespace FotosViagem.Models
         public string localFoto { get; set; }
         public DateTime dataFoto { get; set; }
         public int usuario { get; set; }
-        public IFormFile[] fotos { get; set; }
+        public IFormFile[] fotos { get; set; } = new IFormFile[3];
 
         public List<byte[]> fotosByte { get; set; } = new List<byte[]>();
 

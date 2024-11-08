@@ -11,13 +11,18 @@
 <div class="container mt-5">
     <h1>@ViewData["Title"]</h1>
 
-    <form asp-action="save" asp-controller="fotosviagem" method="post" enctype="multipart/form-data">
+    <form asp-action="SaveFoto" asp-controller="fotosviagem" method="post" enctype="multipart/form-data">
         <input name="operacao"  value="@ViewBag.operacao" hidden/>
 
         <div class="form-group">
-            <label asp-for="nomeUsuario" class="control-label">Nome do Usuário</label>
-            <input asp-for="nomeUsuario" class="form-control" />
-            <span asp-validation-for="nomeUsuario" class="text-danger"></span>
+            <select asp-for="usuario">
+                @{
+                    foreach (CadastroViewModel usuario in ViewBag.Usuarios)
+                    {
+                        <option value="@usuario.id">@usuario.nome</option>
+                    }
+                }
+            </select>
         </div>
 
         <div class="form-group">
@@ -27,24 +32,24 @@
         </div>
 
         <div class="form-group">
-            <label asp-for="dataFoto" class="control-label">Data da Foto</label>
+            <label name="dataFoto" class="control-label">Data da Foto</label>
             <input asp-for="dataFoto" type="date" class="form-control" value="@DateTime.Now"/>
             <span asp-validation-for="dataFoto" class="text-danger"></span>
         </div>
 
         <div>
             <br />
-            <input type="file" asp-for="fotos[0]" id="Imagem1" onchange="ExibirImagem(1)" class="btn btn-secondary">
+            <input type="file" name="fotos" id="Imagem1" onchange="ExibirImagem(1)" class="btn btn-secondary">
             <img id="imgPreview1" src="data:image/jpeg;base64, @Model.Fotos64[0]" class="img-responsive"
                  width="100">
             <span asp-validation-for="fotos[0]" class="text-danger"></span>
             <br />
-            <input type="file" asp-for="fotos[1]" id="Imagem2" onchange="ExibirImagem(2)" class="btn btn-secondary">
+            <input type="file" name="fotos" id="Imagem2" onchange="ExibirImagem(2)" class="btn btn-secondary">
             <img id="imgPreview2" src="data:image/jpeg;base64,@Model.Fotos64[1]" class="img-responsive"
                  width="100">
             <span asp-validation-for="fotos[1]" class="text-danger"></span>
             <br />
-            <input type="file" asp-for="fotos[2]" id="Imagem3" onchange="ExibirImagem(3)" class="btn btn-secondary">
+            <input type="file" name="fotos" id="Imagem3" onchange="ExibirImagem(3)" class="btn btn-secondary">
             <img id="imgPreview3" src="data:image/jpeg;base64,@Model.Fotos64[2]" class="img-responsive"
                  width="100">
             <span asp-validation-for="fotos[2]" class="text-danger"></span>
