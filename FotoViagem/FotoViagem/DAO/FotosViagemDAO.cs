@@ -12,12 +12,12 @@ namespace FotosViagem.DAO
 		}
 		protected override SqlParameter[] CriarParametros(FotosViagemViewModel model)
 		{
-			object[] imagensByte = new object[3];
+			List<object> imagensByte = new List<object>();
 			for (int i = 0; i < 3; i++)
 			{
-				if (model.fotosByte != null)
+				if (model.fotosByte[i] != null && model.fotosByte != null)
 				{
-                    imagensByte[i] = model.fotosByte[i];
+                    imagensByte.Add(model.fotosByte[i]);
 
                 }
 				else {

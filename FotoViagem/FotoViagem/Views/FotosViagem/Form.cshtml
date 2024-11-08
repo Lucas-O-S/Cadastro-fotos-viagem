@@ -34,18 +34,18 @@
 
         <div>
             <br />
-            <input type="file" name="fotos[0]" id="Imagem1" onchange="ExibirImagem(1)" class="btn btn-secondary">
-            <img id="imgPreview1" src="data:image/jpeg;base64,@Model.Fotos64" class="img-responsive"
+            <input type="file" asp-for="fotos[0]" id="Imagem1" onchange="ExibirImagem(1)" class="btn btn-secondary">
+            <img id="imgPreview1" src="data:image/jpeg;base64, @Model.Fotos64[0]" class="img-responsive"
                  width="100">
             <span asp-validation-for="fotos[0]" class="text-danger"></span>
             <br />
-            <input type="file" name="Imagem" id="Imagem2" onchange="ExibirImagem(2)" class="btn btn-secondary">
-            <img id="imgPreview2" src="data:image/jpeg;base64,@Model.Fotos64" class="img-responsive"
+            <input type="file" asp-for="fotos[1]" id="Imagem2" onchange="ExibirImagem(2)" class="btn btn-secondary">
+            <img id="imgPreview2" src="data:image/jpeg;base64,@Model.Fotos64[1]" class="img-responsive"
                  width="100">
             <span asp-validation-for="fotos[1]" class="text-danger"></span>
             <br />
-            <input type="file" name="Imagem" id="Imagem3" onchange="ExibirImagem(3)" class="btn btn-secondary">
-            <img id="imgPreview3" src="data:image/jpeg;base64,@Model.Fotos64" class="img-responsive"
+            <input type="file" asp-for="fotos[2]" id="Imagem3" onchange="ExibirImagem(3)" class="btn btn-secondary">
+            <img id="imgPreview3" src="data:image/jpeg;base64,@Model.Fotos64[2]" class="img-responsive"
                  width="100">
             <span asp-validation-for="fotos[2]" class="text-danger"></span>
 

@@ -14,7 +14,7 @@ namespace FotosViagem.Controllers
 			return View("index");
 		}
 
-		public IActionResult Cadastro(CadastroViewModel model, string operacao)
+		public IActionResult Cadastro(CadastroViewModel model, char operacao)
 		{
 			try
 			{
@@ -41,7 +41,7 @@ namespace FotosViagem.Controllers
 
 
 		}
-        public IActionResult Login(CadastroViewModel model, string operacao)
+        public IActionResult Login(CadastroViewModel model, char operacao)
         {
             try
             {
@@ -68,11 +68,11 @@ namespace FotosViagem.Controllers
 
         }
 
-        private void ValidarDados(CadastroViewModel model, string operacao)
+        private void ValidarDados(CadastroViewModel model, char operacao)
 		{
             ModelState.Clear();
 
-			if (operacao == "C")
+			if (operacao == 'C')
 			{
 				if (!cadastroDAO.VerificarLogin(model.loginUsuario))
 				{
@@ -80,7 +80,7 @@ namespace FotosViagem.Controllers
 
                 }
             }
-            if(operacao == "L")
+            if(operacao == 'L')
             {
                 if (cadastroDAO.Login(model.loginUsuario, model.senha))
                     ModelState.AddModelError("loginUsuario", "Login ou senha incorreto");
