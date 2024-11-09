@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FotoViagem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+14582b48df5dc363510d535fee69917ead732bdf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e97265724c6b7bf9c39a5ed8536bdc80e8566052")]
 [assembly: System.Reflection.AssemblyProductAttribute("FotoViagem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FotoViagem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -124,26 +124,7 @@ namespace FotosViagem.Controllers
             }
         }
 
-        public List<byte[]> ConverteImageByte(IFormFile[] file)
-        {
-            List<byte[]> bytes = new List<byte[]>();   
-            foreach (IFormFile fileItem in file)
-            {
-                if (fileItem != null)
-                {
-                    using (var ms = new MemoryStream())
-                    {
-                        fileItem.CopyTo(ms);
-                        bytes.Add( ms.ToArray());
-                    }
-                }
-                else
-                    bytes.Add(null);
-                
-            }
-            return bytes;
 
-        }
 
 
     }

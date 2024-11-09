@@ -117,6 +117,7 @@ end
 go
 
 create or alter procedure sp_update_FotosViagem(
+	@id int,
 	@localFoto varchar(200),
 	@dataFoto datetime,
 	@foto01 varbinary(max),
@@ -132,6 +133,7 @@ begin
 	foto02 = @foto02,
 	foto03 = @foto03,
 	dataAlteracaoRegistro = GETDATE()
+	where id = @id
 
 
 end

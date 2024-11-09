@@ -12,6 +12,13 @@ namespace FotosViagem.Models
         public int usuario { get; set; }
         public IFormFile[] fotos { get; set; } = new IFormFile[3];
 
+        public IFormFile foto0 { get; set; }
+        
+        public IFormFile foto1 { get; set; }
+
+        public IFormFile foto2 { get; set; }
+
+
         public List<byte[]> fotosByte { get; set; } = new List<byte[]>();
 
         public List<string> Fotos64

@@ -30,7 +30,7 @@ namespace FotosViagem.DAO
             HelperDAO.ExecutaProc("sp_delete", p);
         }
 
-        public virtual T Consulta(int id)
+        public virtual T Consulta(int? id)
         {
             var p = new SqlParameter[]
             {

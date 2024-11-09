@@ -1,33 +1,53 @@
-﻿@model List<FotosViagemViewModel>;
+﻿@model List<FotosViagemViewModel>
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-
 }
 
-<button> <a href="/fotosViagem/create">Novo registro</a></button>
-<button>Voltar</button>
-
-<h1>Registros de Fotos de Viagem:</h1>
-@foreach (FotosViagemViewModel FV in Model)
-{
-    <div>
-        <tr class="">
-            <th>@FV.nomeUsuario</th>
-            <th>@FV.nomeUsuario</th>
-        </tr>
-        <tr>
-            @for (int i = 0; i<3; i++)
-            {
-                <th>
-                    <img src="data:image/jpeg;base64,@FV.Fotos64[i]" /> 
-                    <label>@FV.localFoto - @FV.dataFoto</label>    
-                </th>
-                
-            }
-        </tr>
-
-
+<div class="container my-4">
+    <div class="d-flex justify-content-between mb-3">
+        <a href="/fotosViagem/create" class="btn btn-primary">Novo registro</a>
+        <a asp-controller="Home" asp-action="index" class="btn btn-secondary">Voltar</a>
     </div>
 
-}
+    <h1 class="text-center mb-4">Registros de Fotos de Viagem:</h1>
+
+    @foreach (FotosViagemViewModel FV in Model)
+    {
+        <div class="card mb-4">
+            <div class="card-header text-center">
+                <h5 class="mb-0">@FV.nomeUsuario</h5>
+                <small class="text-muted">@FV.loginUsuario</small>
+            </div>
+
+            <div class="card-body">
+                <div class="row text-center">
+                    @for (int i = 0; i < FV.Fotos64.Count; i++)
+                    {
+                        if (String.IsNullOrEmpty(FV.Fotos64[i]))
+                            continue;
+                        <div class="col-md-4 mb-3">
+                            <img src="data:image/jpeg;base64,@FV.Fotos64[i]" class="img-fluid rounded" alt="Foto de viagem" />
+                        </div>
+                    }
+                </div>
+                <div class="text-center">
+                    <p class="mb-0"><strong>@FV.localFoto</strong></p>
+                    <small class="text-muted">@FV.dataFoto.ToString("dd/MM/yyyy")</small>
+                </div>
+            </div>
+
+            <div class="card-footer text-center">
+                <a asp-controller="fotosViagem" asp-action="Edit" asp-route-id="@FV.id" class="btn btn-warning me-2">Editar</a>
+                <button onclick="ApagarModel(@FV.id)" class="btn btn-danger">Excluir</button>
+            </div>
+        </div>
+    }
+</div>
+<script>
+    function ApagarModel(id) {
+        if (confirm("Confirmar a exclusão do registro?")) {
+            location.href = "fotosViagem/Delete?Id=" + id;
+        }
+    }
+</script>

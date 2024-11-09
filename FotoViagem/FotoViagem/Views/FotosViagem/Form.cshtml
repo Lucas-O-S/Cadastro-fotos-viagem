@@ -2,8 +2,8 @@
 
 @{
     ViewData["Title"] = "Upload de Fotos da Viagem";
-}
 
+}
 <!-- Inclua os links do Bootstrap -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -13,17 +13,37 @@
 
     <form asp-action="SaveFoto" asp-controller="fotosviagem" method="post" enctype="multipart/form-data">
         <input name="operacao"  value="@ViewBag.operacao" hidden/>
+        @if(ViewBag.operacao == "A"){
+            <input asp-for="id" value="@Model.id" hidden />
 
-        <div class="form-group">
-            <select asp-for="usuario">
-                @{
-                    foreach (CadastroViewModel usuario in ViewBag.Usuarios)
-                    {
-                        <option value="@usuario.id">@usuario.nome</option>
+        }
+
+        @if (ViewBag.operacao == "I")
+        {
+            <label asp-for="usuario" class="control-label">Usuario</label>
+            <div class="form-group">
+                <select asp-for="usuario">
+                    @{
+                        foreach (CadastroViewModel usuario in ViewBag.Usuarios)
+                        {
+                            <option value="@usuario.id">@usuario.nome</option>
+                        }
                     }
-                }
-            </select>
-        </div>
+                </select>
+            </div>
+        }
+        else
+        {
+            <div class="form-group">
+
+                <label asp-for="nomeUsuario" class="control-label">Local da Foto</label>
+                <input asp-for="nomeUsuario" class="form-control" value="@Model.nomeUsuario" readonly>
+                <input asp-for="usuario" value="@Model.usuario" hidden />
+
+            </div>
+        }
+
+
 
         <div class="form-group">
             <label asp-for="localFoto" class="control-label">Local da Foto</label>
@@ -33,30 +53,43 @@
 
         <div class="form-group">
             <label name="dataFoto" class="control-label">Data da Foto</label>
-            <input asp-for="dataFoto" type="date" class="form-control" value="@DateTime.Now"/>
+            @if (ViewBag.operacao == "A")
+            {
+                <input type="date" asp-for="dataFoto" value="@Model.dataFoto.ToString("yyyy-MM-dd")" />
+
+            }
+            else
+            {
+                <input type="date" asp-for="dataFoto" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+
+            }            
             <span asp-validation-for="dataFoto" class="text-danger"></span>
         </div>
 
         <div>
             <br />
-            <input type="file" name="fotos" id="Imagem1" onchange="ExibirImagem(1)" class="btn btn-secondary">
+
+            <input type="file" name="foto0" id="Imagem1" onchange="ExibirImagem(1)" class="btn btn-secondary" >
             <img id="imgPreview1" src="data:image/jpeg;base64, @Model.Fotos64[0]" class="img-responsive"
                  width="100">
-            <span asp-validation-for="fotos[0]" class="text-danger"></span>
             <br />
-            <input type="file" name="fotos" id="Imagem2" onchange="ExibirImagem(2)" class="btn btn-secondary">
+            <input type="file" name="foto1" id="Imagem2" onchange="ExibirImagem(2)" class="btn btn-secondary">
             <img id="imgPreview2" src="data:image/jpeg;base64,@Model.Fotos64[1]" class="img-responsive"
                  width="100">
-            <span asp-validation-for="fotos[1]" class="text-danger"></span>
             <br />
-            <input type="file" name="fotos" id="Imagem3" onchange="ExibirImagem(3)" class="btn btn-secondary">
+            <input type="file" name="foto2" id="Imagem3" onchange="ExibirImagem(3)" class="btn btn-secondary">
             <img id="imgPreview3" src="data:image/jpeg;base64,@Model.Fotos64[2]" class="img-responsive"
                  width="100">
-            <span asp-validation-for="fotos[2]" class="text-danger"></span>
+            <span asp-validation-for="fotos" class="text-danger"></span>
 
         </div>
 
-        <button type="submit" class="btn btn-primary">Enviar Fotos</button>
+        <div>
+            <button type="submit" class="btn btn-primary">Enviar Fotos</button>
+            <a asp-controller="FotosViagem" asp-action="index" class="btn btn-secondary">Voltar</a>
+        </div>
+
+
     </form>
 </div>
 
