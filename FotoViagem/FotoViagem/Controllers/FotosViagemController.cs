@@ -27,7 +27,7 @@ namespace FotosViagem.Controllers
             return cadastro;
         }
         public FotosViagemController() { dao = new FotosViagemDAO(); }
-        public IActionResult SaveFoto(FotosViagemViewModel model, string operacao)
+        public override IActionResult Save(FotosViagemViewModel model, string operacao)
         {
             try
             {
@@ -144,6 +144,14 @@ namespace FotosViagem.Controllers
                 }
 
             }
+            DateTime dataMinimaSql = new DateTime(1900, 1, 1);
+
+            if (model.dataFoto < dataMinimaSql || model.dataFoto > DateTime.Today)            
+                ModelState.AddModelError("dataFoto", "Data inválida.");
+            
+            if(string.IsNullOrEmpty(model.localFoto))
+                ModelState.AddModelError("LocalFoto", "Não pode estar vazio");
+
 
 
         }
