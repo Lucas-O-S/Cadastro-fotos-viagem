@@ -11,7 +11,7 @@
 <div class="container mt-5">
     <h1>@ViewData["Title"]</h1>
 
-    <form asp-action="SaveFoto" asp-controller="fotosviagem" method="post" enctype="multipart/form-data">
+    <form asp-action="Save" asp-controller="fotosviagem" method="post" enctype="multipart/form-data">
         <input name="operacao"  value="@ViewBag.operacao" hidden/>
         @if(ViewBag.operacao == "A"){
             <input asp-for="id" value="@Model.id" hidden />
